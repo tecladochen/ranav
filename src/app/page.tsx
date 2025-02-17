@@ -1,101 +1,204 @@
 import Image from "next/image";
-
+import { User, Mail, Settings } from "lucide-react";
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <div className="flex min-h-[96vh] bg-gray-50 p-3 rounded-3xl">
+      {/* 侧边栏 */}
+      <div className="w-[18%] bg-pink-300">
+        <div className="px-4 mb-12">
+          <Image src="/logo.png" alt="GrowCrinee" width={425} height={100} />
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+        <div className="px-2 py-4 bg-green-300">
+          <div className="px-2 py-4">
+            <nav className="space-y-2">
+              <a
+                href="#"
+                className="flex items-center gap-4 px-3 py-2.5 bg-gray-900 text-white rounded-xl hover:bg-gray-800 transition-colors font-medium "
+              >
+                <User className="w-4 h-4 ml-5" />
+                <span className="text-sm ">AI 写作</span>
+              </a>
+              <a
+                href="#"
+                className="flex items-center gap-4 px-3 py-2.5 text-gray-600 hover:bg-gray-100 rounded-xl transition-colors font-bold"
+              >
+                <Mail className="w-4 h-4 ml-5" />
+                <span className="text-sm ">AIGC 视频</span>
+              </a>
+              <a
+                href="#"
+                className="flex items-center gap-4 px-3 py-2.5 text-gray-600 hover:bg-gray-100 rounded-xl transition-colors font-bold"
+              >
+                <Settings className="w-4 h-4 ml-5" />
+                <span className="text-sm ">AIGC 图片</span>
+              </a>
+              {/* 其他菜单项 */}
+            </nav>
+          </div>
+        </div>
+        <div className="flex items-center gap-2 mt-auto">
+          <Image src="/intro.gif" alt="intro" width={200} height={200} />
+        </div>
+      </div>
+
+      {/* 主内容区 */}
+      <div className="flex-1 p-8">
+        {/* 顶部搜索栏 */}
+        <div className="flex items-center justify-between mb-8">
+          <div className="relative">
+            <input
+              type="text"
+              placeholder="Search"
+              className="pl-10 pr-4 py-2 rounded-lg border bg-white"
+            />
+            <svg
+              className="w-5 h-5 absolute left-3 top-2.5 text-gray-400"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+              />
+            </svg>
+          </div>
+
+          <div className="flex items-center gap-4">
+            <div className="flex items-center gap-2">
+              <span className="text-purple-600">21</span>
+              <span>Points</span>
+            </div>
+            <button className="p-2 bg-gray-900 text-white rounded-full">
+              <svg
+                className="w-5 h-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M12 4v16m8-8H4"
+                />
+              </svg>
+            </button>
+            <div className="w-10 h-10 rounded-full bg-gray-200"></div>
+          </div>
+        </div>
+        <div className="bg-pink-300 rounded-bg ">
+          {/* 注册提示卡片 */}
+          <div className="bg-gradient-to-r from-pink-100 to-purple-200 p-6 rounded-xl mb-8">
+            <div className="flex items-center justify-between">
+              <div>
+                <h2 className="text-2xl font-semibold mb-2">
+                  Complete the registration to get 100 free points and connect
+                  with a salesman.
+                </h2>
+                <button className="bg-black text-white px-6 py-2 rounded-lg">
+                  Get 100 FREE points
+                </button>
+              </div>
+              <Image
+                src="/illustration.png"
+                alt="Registration"
+                width={100}
+                height={100}
+              />
+            </div>
+          </div>
+
+          {/* 过滤器 */}
+          <div className="flex gap-4 mb-8">
+            <button className="px-4 py-2 bg-white rounded-lg shadow hover:shadow-md">
+              Availability
+            </button>
+            <button className="px-4 py-2 bg-white rounded-lg shadow hover:shadow-md">
+              Experience
+            </button>
+            <button className="px-4 py-2 bg-white rounded-lg shadow hover:shadow-md">
+              Language
+            </button>
+            <button className="px-4 py-2 bg-white rounded-lg shadow hover:shadow-md">
+              Work Location
+            </button>
+            <button className="px-4 py-2 bg-white rounded-lg shadow hover:shadow-md">
+              Job Type
+            </button>
+            <button className="px-4 py-2 bg-white rounded-lg shadow hover:shadow-md">
+              Expertise
+            </button>
+          </div>
+
+          {/* 销售人员卡片网格 */}
+          <div className="grid grid-cols-3 gap-6">
+            {/* 单个卡片示例 */}
+            <div className="bg-white p-6 rounded-xl shadow-sm">
+              <div className="flex items-center justify-between mb-4">
+                <div className="flex items-center gap-3">
+                  <div className="w-12 h-12 rounded-full bg-gray-200"></div>
+                  <div>
+                    <h3 className="font-semibold">Mayke Schuurs</h3>
+                    <div className="flex items-center gap-2 text-sm text-gray-500">
+                      <span className="px-2 py-1 bg-emerald-100 text-emerald-600 rounded">
+                        Level - 2
+                      </span>
+                      <span>Since 2021</span>
+                    </div>
+                  </div>
+                </div>
+                <svg
+                  className="w-6 h-6 text-emerald-500"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M5 13l4 4L19 7"
+                  />
+                </svg>
+              </div>
+
+              <div>
+                <p className="text-sm text-gray-500 mb-2">Active Tags:</p>
+                <div className="flex flex-wrap gap-2">
+                  <span className="px-3 py-1 bg-gray-100 rounded-full text-sm">
+                    Italian
+                  </span>
+                  <span className="px-3 py-1 bg-gray-100 rounded-full text-sm">
+                    English
+                  </span>
+                  <span className="px-3 py-1 bg-gray-100 rounded-full text-sm">
+                    Arabic
+                  </span>
+                  <span className="px-3 py-1 bg-gray-100 rounded-full text-sm">
+                    B2C
+                  </span>
+                  <span className="px-3 py-1 bg-gray-100 rounded-full text-sm">
+                    B2B
+                  </span>
+                  <span className="px-3 py-1 bg-gray-100 rounded-full text-sm">
+                    Remote
+                  </span>
+                  <span className="px-3 py-1 bg-gray-100 rounded-full text-sm">
+                    Hybrid
+                  </span>
+                  <span className="px-3 py-1 bg-gray-100 rounded-full text-sm">
+                    Full Time
+                  </span>
+                </div>
+              </div>
+            </div>
+            {/* 更多卡片... */}
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
